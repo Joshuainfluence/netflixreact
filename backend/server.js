@@ -2,6 +2,7 @@
 import express from 'express'; //esmodule, to be able to use, set type: module in package.json file
 import authRoutes from './routes/auth.route.js'
 import movieRoutes from './routes/movie.route.js'
+import tvRoutes from "./routes/tv.route.js";
 
 import dotenv from 'dotenv'
 import { ENV_VARS } from './config/enVars.js';
@@ -19,6 +20,7 @@ app.use(express.json()) //will allow us to parse req.body
 // the reason why the verson (v1) for api, is that at some point api will be updated, but the project will still need the first api
 app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/movie", movieRoutes)
+app.use("/api/v1/tv", tvRoutes);
 
 
 
