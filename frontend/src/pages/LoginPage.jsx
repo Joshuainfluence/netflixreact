@@ -17,7 +17,7 @@ const LoginPage = () => {
         </Link>
       </header>
 
-      <div className="flex justify-center items-center mt-20 mx-3">
+      <div className="flex justify-center items-center mt-10 mx-3">
         <div className="w-full max-w-md p-8 space-y-6 bg-black/70 rounded-lg shadow-md">
           <h1 className='text-center text-white text-2xl font-bold mb-4'>Login</h1>
           <form className="space-y-4" onSubmit={handleLogin}>
@@ -52,7 +52,7 @@ const LoginPage = () => {
             <button className="w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 ">Login</button>
           </form>
           <div className="text-center text-gray-400">
-            
+
             Don't have an account? <Link to={'/signup'} className='text-red-500 hover:underline'>Register</Link>
           </div>
         </div>
