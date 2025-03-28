@@ -29,4 +29,34 @@ export async function searchPerson(req, res) {
         res.status(500).json({ success: false, message: "Internal server error" });
     }
 }
+export async function searchMovie(req, res) {
+    const { query } = req.params;
+
+    try {
+        const response = fetchFromTMDB(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`);
+        if (response.length === 0) {
+            return res.status(400).send(null);
+        }
+
+        await User.findByIdAndUpdate(req.user._id, {
+            $push: {
+                searchHistory: {
+                    id: response.results[0].id,
+                    image: response.results[0].poster_path,
+                    title: response.results[0].title,
+                    searchType: "movie",
+                    createdAt: new Date()
+                },
+            }
+        })
+
+        res.status(200).json({ success: true, content: response.results })
+
+    } catch (error) {
+        console.log("Error in search movie ", error.message)
+        res.status(500).json({ success: false, message: "Internal server error" });
+    }
+}
+
+
 
