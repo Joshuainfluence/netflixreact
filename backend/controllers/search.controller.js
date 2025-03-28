@@ -96,6 +96,23 @@ export async function getSearchHistory(req, res) {
 }
 
 export async function removeItemFromSearchHistory(req, res) {
-    const { id } = req.params;
+    // params by default is string, so we have to convert it to int
+    let { id } = req.params;
+    id = parseInt(id)
+
+    // console.log(typeof id)
+    try {
+        await User.findByIdAndUpdate(req.user._id, {
+            $pull: {
+                searchHistory: {
+                    id: id
+                }
+            }
+        })
+        res.status(200).json({success: true, message: "Items removed from search history"})
+    } catch (error) {
+        console.log("Error in removeItemFromSearchHistory controller ", error.message)
+        res.status(500).json({success: false, message: "Internal Server error"});
+    }
 
 }
