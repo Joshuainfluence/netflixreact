@@ -32,8 +32,8 @@ export async function searchMovie(req, res) {
     const { query } = req.params;
 
     try {
-        const response = fetchFromTMDB(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`);
-        if (response.status.length === 0) {
+        const response = await fetchFromTMDB(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`);
+        if (response.results.length === 0) {
             return res.status(400).send(null);
         }
 
@@ -61,8 +61,8 @@ export async function searchTv(req, res) {
     const { query } = req.params;
 
     try {
-        const response = fetchFromTMDB(`https://api.themoviedb.org/3/search/tv?query=${query}&include_adult=false&language=en-US&page=1`);
-        if (response.status.length === 0) {
+        const response = await fetchFromTMDB(`https://api.themoviedb.org/3/search/tv?query=${query}&include_adult=false&language=en-US&page=1`);
+        if (response.results.length === 0) {
             return res.status(400).send(null);
         }
 
