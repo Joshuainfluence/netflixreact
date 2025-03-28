@@ -10,6 +10,10 @@ dotenv.config();
 
 const app = express();
 const PORT = ENV_VARS.PORT
+
+
+app.use(express.json()) //will allow us to parse req.body
+
 // the reason why the verson (v1) for api, is that at some point api will be updated, but the project will still need the first api
 app.use("/api/v1/auth", authRoutes)
 
