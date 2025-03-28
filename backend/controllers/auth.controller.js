@@ -10,7 +10,7 @@ export async function signup(req, res) {
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if(!emailRegex.text(email)){
+        if(!emailRegex.test(email)){
             return res.status(400).json({success: false, message: "Email is not valid!"});
         }
 
@@ -27,7 +27,7 @@ export async function signup(req, res) {
             return res.status(400).json({success: false, message: "Email already exists!"});
         }
 
-        const existingUserByUsername = await User.fihdOne({username: username})
+        const existingUserByUsername = await User.findOne({username: username})
         if(existingUserByUsername){
             return res.status(400).json({success: false, message: "Username already exists!"});
         }
