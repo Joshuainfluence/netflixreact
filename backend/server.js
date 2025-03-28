@@ -7,6 +7,8 @@ import tvRoutes from "./routes/tv.route.js";
 import dotenv from 'dotenv'
 import { ENV_VARS } from './config/enVars.js';
 import { connectDB } from './config/db.js';
+import cookieParser from 'cookie-parser';
+import { protectRoute } from './middleware/protectRoute.js';
 
 dotenv.config();
 
@@ -16,11 +18,12 @@ const PORT = ENV_VARS.PORT
 
 
 app.use(express.json()) //will allow us to parse req.body
+app.use(cookieParser());
 
 // the reason why the verson (v1) for api, is that at some point api will be updated, but the project will still need the first api
 app.use("/api/v1/auth", authRoutes)
-app.use("/api/v1/movie", movieRoutes)
-app.use("/api/v1/tv", tvRoutes);
+app.use("/api/v1/movie", protectRoute, movieRoutes)
+app.use("/api/v1/tv", protectRoute, tvRoutes);
 
 
 

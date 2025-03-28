@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import { ENV_VARS } from "../config/enVars.js";
 
 export const generateTokenAndSetCookie = (userId, res)=>{
+    // userId is passed as the payload to the token
     const token = jwt.sign({userId}, ENV_VARS.JWT_SECRET, {expiresIn: "15d"});
 
     res.cookie("jwt-netflix", token, {
