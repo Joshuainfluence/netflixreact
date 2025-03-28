@@ -1,1 +1,26 @@
+# Node.js
+node_modules/
+
+# Environment Files
 .env
+
+# Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# OS-specific files
+.DS_Store         # macOS
+Thumbs.db         # Windows
+
+# IDE files
+.vscode/
+.idea/
+
+# Build output
+/dist/
+build/
+
+# NPM package lock files (optional)
+package-lock.json
+yarn.lock
