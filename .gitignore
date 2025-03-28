@@ -24,3 +24,6 @@ build/
 # NPM package lock files (optional)
 package-lock.json
 yarn.lock
+
+# git rm --cached .env
+# to remove .env file from git tracking
