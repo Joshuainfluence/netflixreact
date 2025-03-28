@@ -1,9 +1,9 @@
 import React from 'react'
 
 const HomePage = () => {
-  return (
-    <div className='text-black text-3xl'>HomePage</div>
-  )
+//   return (
+    return <div className='hero-bg h-screen'>HomePage</div>;
+//   )
 }
 
 export default HomePage
