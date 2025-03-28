@@ -57,3 +57,18 @@ export async function getSimilarMovies(req, res) {
         
     }
 }
+
+export async function getMoviesByCategory(req, res) {
+    const {category } = req.params; 
+    try {
+        const data = await fetchFromTMDB(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`);
+        res.status(200).json({success: true, content: data.results}) 
+    } catch (error) {
+        if (error.message.includes("404")) {
+            return res.status(400).send(null)
+        }
+
+        res.status(500).json({success: false, message: "Internal server error"});   
+        
+    }
+}
