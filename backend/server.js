@@ -3,6 +3,7 @@ import express from 'express'; //esmodule, to be able to use, set type: module i
 import authRoutes from './routes/auth.route.js'
 import dotenv from 'dotenv'
 import { ENV_VARS } from './config/enVars.js';
+import { connectDB } from './config/db.js';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use("/api/v1/auth", authRoutes)
 
 
 // to be able to run this file, under at package.json file, at scripts, add dev: node
-app.listen(PORT, ()=> {
+app.listen(PORT, () => {
     console.log("Server is started on https://localhost:" + PORT)
+    connectDB();
 })
