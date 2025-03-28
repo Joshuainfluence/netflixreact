@@ -1,4 +1,4 @@
-import HomePage from "./pages/HomePage.jsx";
+import HomePage from "./pages/home/HomePage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 
 import { Routes, Route } from "react-router-dom";
