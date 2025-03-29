@@ -52,26 +52,61 @@ const AuthScreen = () => {
             {/* 1st section */}
 
             <div className='py-10 bg-black text-white'>
-                <div className="flex max-w-6xl mx-auto items center justify-center md:flex-row flex-col px-4 md:px-2">
+                <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
                     {/* left side */}
                     <div className="flex-1 text-center md:text-left">
                         <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
                             Enjoy on you TV
                         </h2>
                         <p className="text-lg md:text-xl">
-                        Watch on Smart TVs, Playstations, Xbox, Chromecast, Apple Tv, Bluray-player, Youtube.
+                            Watch on Smart TVs, Playstations, Xbox, Chromecast, Apple Tv, Bluray-player, Youtube.
                         </p>
                     </div>
 
                     {/* right side */}
-                    <div className="flex-1 border border-red-500 relative">
-                        <img src="/tv.png" alt="Tv image"  className='mt-4 z-20 relative'/>
+                    <div className="flex-1 relative">
+                        <img src="/tv.png" alt="Tv image" className='mt-4 z-20 relative' />
                         <video className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1/2 rounded-lg shadow-lg z-10' autoPlay loop muted playsInline>
                             <source src='hero-vid.m4v' type='video/mp4' />
                         </video>
                     </div>
                 </div>
             </div>
+
+            {/* seperator */}
+            <div
+                className='h-2 w-full bg-[#232323]'
+                aria-hidden='true'
+            />
+
+            {/* second section */}
+            <div className='py-10 bg-black text-white'>
+                <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col-reverse px-4 md:px-2">
+                    {/* left side */}
+                    <div className="flex-1 relative">
+                        <img src="/stranger-things-lg.png" alt="Tv image" className='mt-4 z-20 relative' />
+                        <video className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1/2 rounded-lg shadow-lg z-10' autoPlay loop muted playsInline>
+                            <source src='hero-vid.m4v' type='video/mp4' />
+                        </video>
+                    </div>
+
+                    {/* right side */}
+                    <div className="flex-1 text-center md:text-left">
+                        <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+                            Download your shows to watch offline
+                        </h2>
+                        <p className="text-lg md:text-xl">
+                            Save your favorites easily and always have something to watch.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* seperator */}
+            <div
+                className='h-2 w-full bg-[#232323]'
+                aria-hidden='true'
+            />
         </div>
     )
 }
