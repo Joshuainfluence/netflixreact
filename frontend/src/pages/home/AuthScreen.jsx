@@ -84,10 +84,22 @@ const AuthScreen = () => {
                 <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col-reverse px-4 md:px-2">
                     {/* left side */}
                     <div className="flex-1 relative">
-                        <img src="/stranger-things-lg.png" alt="Tv image" className='mt-4 z-20 relative' />
-                        <video className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1/2 rounded-lg shadow-lg z-10' autoPlay loop muted playsInline>
+                        <div className="relative">
+                            <img src="/stranger-things-lg.png" alt="Tv image" className='mt-4' />
+                            <div className="flex items-center gap-2 absolute bottom-5 left-1/2 -translate-x-1/2 bg-black w-3/4 lg:w-1/2 h-24 border border-slate-500 rounded-md px-2">
+                                <img src="/stranger-things-sm.png" alt="image" className='h-full' />
+                                <div className="flex justify-between items-center w-full">
+                                    <div className="flex flex-col gap-0">
+                                        <span className='text-md lg:text-lg font-bold'>Stranger things</span>
+                                        <span className='text-sm text-blue-500'>Downloading...</span>
+                                    </div>
+                                    <img src="/download-icon.gif" alt="" className='h-12' />
+                                </div>
+                            </div>
+                            {/* <video className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1/2 rounded-lg shadow-lg z-10' autoPlay loop muted playsInline>
                             <source src='hero-vid.m4v' type='video/mp4' />
-                        </video>
+                        </video> */}
+                        </div>
                     </div>
 
                     {/* right side */}
@@ -130,8 +142,8 @@ const AuthScreen = () => {
                     </div>
                 </div>
             </div>
-                
-                {/* seperator */} 
+
+            {/* seperator */}
         </div>
     )
 }
