@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const SignUpPage = () => {
-    const [email, setEmail] = useState("");
+    const {searchParams} = new URL(document.location)
+    const emailValue = searchParams.get("email") 
+
+    const [email, setEmail] = useState(emailValue || "");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
 
     const handleSignup = (e) => {
         e.preventDefault();
@@ -14,8 +18,8 @@ const SignUpPage = () => {
     <div className='h-screen w-full hero-bg '>
         <header className='max-w-6xl mx-auto flex items-center justify-between p-4 '>
             <Link to={"/"}>
-                {/* <img src="/logo.png" alt="logo" className='w-52'/> */}
-                <h1 className='text-5xl text-red-500 font-bold'>VENOSTREAMS</h1>
+                <img src="/veno.png" alt="logo" className='w-52'/>
+                {/* <h1 className='text-5xl text-red-500 font-bold'>VENOSTREAMS</h1> */}
 
             </Link>
         </header>
