@@ -4,6 +4,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import { Routes, Route } from "react-router-dom";
 import SignUpPage from "./pages/SignUpPage.jsx";
 import Footer from "./components/Footer.jsx";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
 
     </Routes>
     {/* <Footer/> */}
+    <Toaster/>
     </>
   )
 }
