@@ -6,6 +6,7 @@ const user = false;
 const HomePage = () => {
   return (
      <div>
+      {/* this the homepage, will display homescreen if user is authenticated else it will display authscreen where the user will have to input email address and then signin/signup */}
         {user ? <HomeScreen/> : <AuthScreen/>}
      </div>
   )
