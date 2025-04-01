@@ -1,15 +1,16 @@
 import React from 'react'
 import { useAuthStore } from '../../store/authUser'
+import Navbar from '../../components/Navbar'
 
 const HomeScreen = () => {
   // getting logout from global state, it is more like a context`
-  const {logout} = useAuthStore();
+  // const {logout} = useAuthStore();
   return (
-    <div>Home screen
-    <button onClick={logout}>Logout</button>
-      
-    </div>
-    
+    <>
+   <div className="relative h-screen text-white bg-black">
+    <Navbar/>
+   </div>
+   </>
   )
 }
 
