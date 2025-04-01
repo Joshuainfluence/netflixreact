@@ -15,7 +15,7 @@ export default function App() {
 
   useEffect(() => {
     authCheck()
-  }, []);
+  }, [authCheck]);
 
   if (isCheckingAuth) {
     return (
