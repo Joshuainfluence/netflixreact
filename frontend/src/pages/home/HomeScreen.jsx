@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAuthStore } from '../../store/authUser'
+// import { useAuthStore } from '../../store/authUser'
 import Navbar from '../../components/Navbar'
 import { Link } from 'react-router-dom'
 import { Info, Play } from 'lucide-react'
