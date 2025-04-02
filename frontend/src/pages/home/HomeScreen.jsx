@@ -28,15 +28,15 @@ const HomeScreen = () => {
             </h1>
             <p className='mt-2 text-lg'>{trendingContent?.release_date?.split("-")[0] || trendingContent?.first_air_date.split("-")[0]} {" "} | {trendingContent?.adult ? "18+" : "PG-13"}</p>
             <p className='mt-4 text-lg'>
-            {trendingContent?.overview}
+            {trendingContent?.overview.length > 200 ? trendingContent?.overview.slice(0, 200) + "..." : trendingContent?.overview}
             </p>
           </div>
           <div className="flex flex-col md:flex-row gap-4 mt-8">
-            <Link to={'/watch'} className='bg-white hover:bg-white/80 text-black font-bold py-2 px-4 rounded flex items-center '>
+            <Link to={`/watch/${trendingContent?.id}`} className='bg-white hover:bg-white/80 text-black font-bold py-2 px-4 rounded flex items-center '>
               <Play className='size-6 mr-2 fill-black' />
               Play
             </Link>
-            <Link to={'/watch'} className='bg-gray-500/70 hover:bg-gray-500 text-white py-2 px-4 rounded flex items-center '>
+            <Link to={`/watch/${trendingContent?.id}`} className='bg-gray-500/70 hover:bg-gray-500 text-white py-2 px-4 rounded flex items-center '>
               <Info className='size-6 mr-2' />
               More info
             </Link>
