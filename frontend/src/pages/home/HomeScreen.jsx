@@ -7,10 +7,14 @@ const HomeScreen = () => {
   // const {logout} = useAuthStore();
   return (
     <>
-   <div className="relative h-screen text-white bg-black">
-    <Navbar/>
-   </div>
-   </>
+      <div className="relative h-screen text-white">
+        <Navbar />
+        <img src="/extraction.jpg" alt="Hero image" className='absolute top-0 left-0 h-full w-full object-cover -z-50' />
+        <div className="absolute top-0 left-0 h-full w-full object-cover -z-50 bg-black/50" aria-hidden="true">
+
+        </div>
+      </div>
+    </>
   )
 }
 
