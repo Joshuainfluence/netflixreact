@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar'
 import { Link } from 'react-router-dom'
 import { Info, Play } from 'lucide-react'
 import useGetTrendingContent from '../../hooks/useGetTrendingContent'
+import { ORIGINAL_IMG_BASE_URL } from '../../utils/constants'
 
 const HomeScreen = () => {
   const {trendingContent}= useGetTrendingContent();
@@ -16,21 +17,18 @@ const HomeScreen = () => {
     <>
       <div className="relative h-screen text-white">
         <Navbar />
-        <img src="/extraction.jpg" alt="Hero image" className='absolute top-0 left-0 h-full w-full object-cover -z-50' />
+        <img src={ORIGINAL_IMG_BASE_URL + trendingContent?.backdrop_path} alt="Hero image" className='absolute top-0 left-0 h-full w-full object-cover -z-50' />
         {/* aria hidden true so that screeen readers doen't see it */}
         <div className="absolute top-0 left-0 h-full w-full object-cover -z-50 bg-black/50" aria-hidden="true" />
         <div className="absolute top-0 w-full h-full flex flex-col left-0 justify-center px-8 md:px-16 lg:px-32">
           <div className="bg-gradient-to-b from-black via-transparent to-transparent absolute w-full h-full top-0 left-0 -z-10" />
           <div className="max-w-2xl">
             <h1 className="mt-4 text-6xl font-extrabold text-balance">
-              Extraction
+              {trendingContent?.title || trendingContent?.name}
             </h1>
-            <p className='mt-2 text-lg'>2014 | 18+</p>
+            <p className='mt-2 text-lg'>{trendingContent?.release_date?.split("-")[0] || trendingContent?.first_air_date.split("-")[0]} {" "} | {trendingContent?.adult ? "18+" : "PG-13"}</p>
             <p className='mt-4 text-lg'>
-              Extraction is a 2014 American action thriller film directed by
-              A group of mercenaries is hired to rescue a businessman whose
-              son has been kidnapped. The mission goes awry when they are
-              double-crossed and the businessman is killed. The mercenaries are
+            {trendingContent?.overview}
             </p>
           </div>
           <div className="flex flex-col md:flex-row gap-4 mt-8">
