@@ -7,3 +7,18 @@
   background-size: cover;
   width: 100%;
 }
+
+.shimer{
+  animation: shimer 2s infinite linear;
+  background: linear-gradient(to right, #2c2c2c 4%, #333 25%, #2c2c2c 36%, #2c2c2c 100%);
+  background-size: 1000px 100%;
+}
+
+@keyframes shimer {
+  0%{
+    background-position: -1000px 0;
+  }
+  100%{
+    background-position: 1000px 0;
+  } 
+}

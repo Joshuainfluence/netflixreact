@@ -11,6 +11,15 @@ const HomeScreen = () => {
   console.log(
   "trending content in home screen: ", trendingContent
   )
+
+  if(!trendingContent) return(
+    <div className="h-screen relative text-white">
+      <Navbar />
+      <div className="absolute top-0 right-0 w-full h-full bg-black/70 flex items-center -z-10 justify-center shimer">
+
+      </div>
+    </div>
+  )
   // getting logout from global state, it is more like a context`
   // const {logout} = useAuthStore();
   return (
