@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import { useAuthStore } from '../../store/authUser'
 import Navbar from '../../components/Navbar'
 import { Link } from 'react-router-dom'
@@ -9,19 +9,20 @@ import { useContentStore } from '../../store/content'
 import MovieSlider from '../../components/MovieSlider'
 
 const HomeScreen = () => {
-  const {trendingContent}= useGetTrendingContent();
+  const { trendingContent } = useGetTrendingContent();
   console.log(
-  "trending content in home screen: ", trendingContent
+    "trending content in home screen: ", trendingContent
   )
 
-  const {contentType} = useContentStore()
+  const { contentType } = useContentStore()
+  const [imageLoading, setImageLoading] = useState(true)
 
-  if(!trendingContent) return(
+  if (!trendingContent) return (
     <div className="h-screen relative text-white">
       <Navbar />
-      <div className="absolute top-0 right-0 w-full h-full bg-black/70 flex items-center -z-10 justify-center shimer">
+      <div className="absolute top-0 right-0 w-full h-full bg-black/70 flex items-center -z-10 justify-center shimer"/>
 
-      </div>
+     
     </div>
   )
   // getting logout from global state, it is more like a context`
@@ -30,7 +31,18 @@ const HomeScreen = () => {
     <>
       <div className="relative h-screen text-white">
         <Navbar />
-        <img src={ORIGINAL_IMG_BASE_URL + trendingContent?.backdrop_path} alt="Hero image" className='absolute top-0 left-0 h-full w-full object-cover -z-50' />
+
+        {/* cool image optimaztion hack for image */}
+        {imageLoading && (
+          <div className="absolute top-0 right-0 w-full h-full bg-black/70 flex items-center -z-10 justify-center shimer -z-10"/>
+
+   
+        )}
+        <img src={ORIGINAL_IMG_BASE_URL + trendingContent?.backdrop_path} alt="Hero image" className='absolute top-0 left-0 h-full w-full object-cover -z-50'
+        onLoad={()=> {
+          setImageLoading(false)
+        }}
+        />
         {/* aria hidden true so that screeen readers doen't see it */}
         <div className="absolute top-0 left-0 h-full w-full object-cover -z-50 bg-black/50" aria-hidden="true" />
         <div className="absolute top-0 w-full h-full flex flex-col left-0 justify-center px-8 md:px-16 lg:px-32">
@@ -41,7 +53,7 @@ const HomeScreen = () => {
             </h1>
             <p className='mt-2 text-lg'>{trendingContent?.release_date?.split("-")[0] || trendingContent?.first_air_date.split("-")[0]} {" "} | {trendingContent?.adult ? "18+" : "PG-13"}</p>
             <p className='mt-4 text-lg'>
-            {trendingContent?.overview.length > 200 ? trendingContent?.overview.slice(0, 200) + "..." : trendingContent?.overview}
+              {trendingContent?.overview.length > 200 ? trendingContent?.overview.slice(0, 200) + "..." : trendingContent?.overview}
             </p>
           </div>
           <div className="flex flex-col md:flex-row gap-4 mt-8">
@@ -61,7 +73,7 @@ const HomeScreen = () => {
       </div>
 
       <div className="flex flex-col gap-10 bg-black py-10">
-      {contentType === "movie" ? (MOVIE_CATEGORIES.map((category) => <MovieSlider key={category} category={category} /> ) ): (TV_CATEGORIES.map((category) => <MovieSlider key={category} category={category} /> ))}
+        {contentType === "movie" ? (MOVIE_CATEGORIES.map((category) => <MovieSlider key={category} category={category} />)) : (TV_CATEGORIES.map((category) => <MovieSlider key={category} category={category} />))}
       </div>
     </>
   )
