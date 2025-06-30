@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authUser.js";
 import { useEffect } from "react";
 import { Loader } from "lucide-react";
+import WatchPage from "./pages/WatchPage.jsx";
 
 export default function App() {
   const { user, isCheckingAuth, authCheck } = useAuthStore()
@@ -37,6 +38,8 @@ export default function App() {
         <Route path="/login" element={!user ? <LoginPage /> : <Navigate to={"/"} />} />
         {/* if  user is visiting the signup page while they're authenicated, redirect them back to the home page */}
         <Route path="/signup" element={!user ? <SignUpPage /> : <Navigate to={"/"} />} />
+        <Route path="/watch/:id" element={user ? <WatchPage /> : <Navigate to={"/login"} />} />
+
 
 
       </Routes>
