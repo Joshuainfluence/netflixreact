@@ -15,7 +15,7 @@ const AuthScreen = () => {
 
             {/* Navbar */}
             <header className='max-w-6xl mx-auto flex items-center justify-between p-4 pb-10 '>
-                <img src="/veno.png" alt="logo" className='w-32 md:w-52' />
+                <img src="/influence.png" alt="logo" className='w-32 md:w-52' />
                 {/* <h1 className='text-5xl text-red-500 font-bold'>VENOSTREAMS</h1> */}
                 <Link to={"/login"} className='text-white bg-red-600 py-1 px-2 rounded'>
                     Sign in
@@ -25,7 +25,7 @@ const AuthScreen = () => {
             {/* hero section */}
             <div className="flex flex-col items-center justify-center text-center py-40 text-white max-w-6xl mx-auto">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                    Unlimited movies, Tv shows on VENOSTREAMS.
+                    Unlimited movies, Tv shows on INFLUENCE.
                 </h1>
                 <p className="text-lg mb-4">
                     Watch anywhere. Cancel anytime.
